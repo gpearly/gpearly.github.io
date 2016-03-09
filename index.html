@@ -1,0 +1,21 @@
+<html lang="en-US">
+<head>
+<title>Application Defect Tracker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h2 style="color:blue">Defect Tracker</h2>
+
+<form action="DefectTrackerServlet" method="POST">
+	<input type="radio" name="userChoice" value="insert" checked> Create defect<br>  
+	<input type="radio" name="userChoice" value="update"> Update defect &nbsp; <input type="number" name="updatedefectId"><br> 
+	<input type="radio" name="userChoice" value="view"> View defect &nbsp; <input type="number" name="viewdefectId"><br>  
+	<input type="radio" name="userChoice" value="viewAll"> View all defects<br><br>
+	<input type="submit" value="Submit">&nbsp;
+	<input type="reset" value="Clear">
+</form>
+
+</body>
+</html>
