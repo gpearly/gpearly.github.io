@@ -1,0 +1,26 @@
+<html lang="en-US">
+<head>
+<title>Bug Tracker Main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<h2>    
+    <img src="/images/bugTrackerLeft.png" alt="Bug Tracker" style="width:80;height:80px;">
+    <span class="bugLarge">Bug</span> Tracker
+    <img src="/images/bugTrackerRight.png" alt="Bug Tracker" style="width:80;height:80px;">
+</h2>
+
+<form class="index" action="DefectTrackerServlet" method="POST">
+	<input type="radio" name="menuOption" value="insertDefect1" checked>Create <span class="bugSmall">Bug</span><br>
+	<input type="radio" name="menuOption" value="updateDefect1">Update <span class="bugSmall">Bug</span><br>
+	<input type="radio" name="menuOption" value="viewDefect1">View <span class="bugSmall">Bug</span><br> 
+	<input type="radio" name="menuOption" value="viewAllDefects1">View all <span class="bugSmall">Bugs</span><br><br>
+	<input type="submit" value="Submit">
+</form>
+</body>
+</html>

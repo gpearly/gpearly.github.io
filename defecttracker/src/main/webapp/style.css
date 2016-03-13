@@ -1,0 +1,61 @@
+body {
+	margin-left: auto;
+    margin-right: auto;
+    background-color: gray;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    font-size: 5em;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    font-size: 2em;
+}
+
+span.bugLarge {
+    color: red;
+    font-size: 140%;
+}
+
+span.bugSmall {
+    color: red;
+}
+
+form.index {
+    padding-left: 42.5%;
+    font-family: 'Droid Serif', serif;
+    font-size: 1.5em;
+}
+
+input[type=radio] {
+    width: 35px;
+    height:35px;
+    vertical-align: middle;
+}
+
+table {
+    font-family: 'Droid Serif', serif;
+    font-size:1.25em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="submit"] {
+    background-color:dimgray;
+    color: red;
+    font-size:18px;
+	line-height:30px;
+	border-radius:20px;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border:0;
+	text-shadow:gray 0 -1px 0;
+	width:200px;
+	height:32px;
+    margin-left: auto;
+    margin-right: auto;
+}
