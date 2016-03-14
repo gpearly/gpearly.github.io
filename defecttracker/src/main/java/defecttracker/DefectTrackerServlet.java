@@ -129,6 +129,15 @@ public class DefectTrackerServlet extends HttpServlet {
 						
 		} else if (menuOption.equals("updateDefect2")) {
 			
+			// find the defect to update in the Db and create a list of one defect
+			defectId = Integer.parseInt(request.getParameter("defectId")); 
+			defect = DbUtils.findDefect(defectId);
+			defects = new ArrayList<Defect>();
+			defects.add(defect);
+			
+			request.setAttribute("updateList", defects);
+			request.setAttribute("defectId", defect.getDefectId());
+			
 			// create a list of open products since not allowed to update closed products
 			List<Product> openProducts = new ArrayList<Product>(); 
 			products = DbUtils.findAllProducts();
