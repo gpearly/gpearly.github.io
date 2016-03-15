@@ -79,23 +79,20 @@ employees = (ArrayList<Employee>)request.getAttribute("employees");
     <tr>
         <td>Title:</td>
         <td>
-            <textarea name="title" cols="40" rows="1" required>
-            <%= uDefect.getTitle() %>
-            </textarea>
+            <textarea name="title" cols="40" rows="1" required><%= uDefect.getTitle() %></textarea>
         </td>
     </tr>
     <tr>
         <td>Description:</td>
         <td>
-            <textarea name="description" cols="40" rows="5" required>
-            <%= uDefect.getDescription() %>
-            </textarea>
+            <textarea name="description" cols="40" rows="5" required><%= uDefect.getDescription() %></textarea>
         </td>
     </tr>
     <tr>
+    	<%-- show without edit capability --%>
         <td>Submit Date:</td>
         <td>
-            <input type="date" name="submitDate" required value='<%= uDefect.getSubmitDate() %>'>
+            <input type="date" name="submitDate" required disabled value='<%= uDefect.getSubmitDate() %>' />
         </td>
     </tr>
     <tr>
@@ -149,17 +146,21 @@ employees = (ArrayList<Employee>)request.getAttribute("employees");
     <tr>
         <td>Solution:</td>
         <td>
-            <textarea name="solution" cols="40" rows="5">
-            <% if (uDefect.getSolution() != null) { %>
-            	<%= uDefect.getSolution() %>
-            <% } %>
+            <textarea name="solution" cols="40" rows="5" placeholder="Describe how you knocked this problem out of the park!">
+            	<% if ((uDefect.getSolution() != null) && (uDefect.getSolution().trim().length() > 0)) { %> <%= uDefect.getSolution() %> <% } %>
             </textarea>
         </td>
     </tr>
 </table>
 <table>
     <tr>
-        <td><input type="submit" value="Submit" /></td>
+        <td><button type="reset" value="Reset">Reset</button></td>
+        <td><button type="submit" value="Submit">Submit</button></td>
+        <td>
+        	<a href="/index.html">
+        		<input type="button" value="Cancel" />
+			</a>
+		</td>       
     </tr>
 </table>
 </form>

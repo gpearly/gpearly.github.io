@@ -159,15 +159,10 @@ public class DefectTrackerServlet extends HttpServlet {
 		} else if (menuOption.equals("updateDefect3")) {
 
 			// build defect object from updateDefect.jsp form data
+			// (sans submitDate)
 			defect.setDefectId(Integer.parseInt(request.getParameter("defectId")));
 			defect.setProduct(request.getParameter("product"));
 			defect.setSubmitter(request.getParameter("submitLastName"));			
-			try {
-				java.util.Date date = format.parse(request.getParameter("submitDate"));
-				defect.setDueDate(new java.sql.Date(date.getTime()));
-			} catch (ParseException ex) {
-				ex.printStackTrace();
-			}
 			defect.setTitle(request.getParameter("title"));
 			defect.setDescription(request.getParameter("description"));
 			try {
