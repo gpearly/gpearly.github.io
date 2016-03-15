@@ -219,6 +219,7 @@ public class DefectTrackerServlet extends HttpServlet {
 			defects.add(defect);
 			
 			request.setAttribute("defectList", defects);
+			request.setAttribute("isSingleDefect", "true");
 
 			// forward to viewDefects.jsp
 			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/viewDefects.jsp");
@@ -241,6 +242,7 @@ public class DefectTrackerServlet extends HttpServlet {
 			defects = DbUtils.findAllDefects();
 			
 			request.setAttribute("defectList", defects);
+			request.setAttribute("isSingleDefect", "false");
 
 			// forward to viewDefects.jsp
 			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/viewDefects.jsp");

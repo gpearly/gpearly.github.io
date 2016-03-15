@@ -44,7 +44,9 @@ table {
     margin-right: auto;
 }
 
-input[type="submit"] {
+input[type="submit"],
+input[type="button"],
+button {
     background-color:dimgray;
     color: red;
     font-size:18px;
