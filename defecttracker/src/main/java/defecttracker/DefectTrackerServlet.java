@@ -129,6 +129,15 @@ public class DefectTrackerServlet extends HttpServlet {
 						
 		} else if (menuOption.equals("updateDefect2")) {
 			
+			// find the defect to update in the Db and create a list of one defect
+			defectId = Integer.parseInt(request.getParameter("defectId")); 
+			defect = DbUtils.findDefect(defectId);
+			defects = new ArrayList<Defect>();
+			defects.add(defect);
+			
+			request.setAttribute("updateList", defects);
+			request.setAttribute("defectId", defect.getDefectId());
+			
 			// create a list of open products since not allowed to update closed products
 			List<Product> openProducts = new ArrayList<Product>(); 
 			products = DbUtils.findAllProducts();
@@ -150,15 +159,10 @@ public class DefectTrackerServlet extends HttpServlet {
 		} else if (menuOption.equals("updateDefect3")) {
 
 			// build defect object from updateDefect.jsp form data
+			// (sans submitDate)
 			defect.setDefectId(Integer.parseInt(request.getParameter("defectId")));
 			defect.setProduct(request.getParameter("product"));
 			defect.setSubmitter(request.getParameter("submitLastName"));			
-			try {
-				java.util.Date date = format.parse(request.getParameter("submitDate"));
-				defect.setDueDate(new java.sql.Date(date.getTime()));
-			} catch (ParseException ex) {
-				ex.printStackTrace();
-			}
 			defect.setTitle(request.getParameter("title"));
 			defect.setDescription(request.getParameter("description"));
 			try {

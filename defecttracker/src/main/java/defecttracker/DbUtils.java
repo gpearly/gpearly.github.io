@@ -136,17 +136,18 @@ public class DbUtils {
 			stmt = conn.createStatement();
 
 			// build SQL UPDATE string
+			// (don't allow user to update submit date)
 			StringBuilder query = new StringBuilder();
 			query.append("UPDATE Defects ");
-			query.append("SET Product='" + defect.getProduct() + "',");
-			query.append("Submitter='" + defect.getSubmitter() + "',");
-			query.append("Submit_Date='" + defect.getSubmitDate() + "',");
-			query.append("Title='" + defect.getTitle() + "',");
-			query.append("Description='" + defect.getDescription() + "',");
-			query.append("Due_Date='" + defect.getDueDate() + "',");
-			query.append("Priority='" + defect.getPriority() + "',");
+			query.append("SET Product='" + defect.getProduct() + "', ");
+			query.append("Submitter='" + defect.getSubmitter() + "', ");
+			//query.append("Submit_Date='" + defect.getSubmitDate() + "', ");
+			query.append("Title='" + defect.getTitle() + "', ");
+			query.append("Description='" + defect.getDescription() + "', ");
+			query.append("Due_Date='" + defect.getDueDate() + "', ");
+			query.append("Priority='" + defect.getPriority() + "', ");
 			query.append("State='" + defect.getState() + "',");
-			query.append("Assignee='" + defect.getAssignee() + "',");
+			query.append("Assignee='" + defect.getAssignee() + "', ");
 			query.append("Solution='" + defect.getSolution() + "' ");
 			query.append("WHERE DefectId='" + defect.getDefectId() + "';");
 
@@ -169,6 +170,10 @@ public class DbUtils {
 				logger.info(ex.getMessage());
 			}
 		} catch (SQLException ex) {
+			if (logger != null && logger.isLoggable(Level.INFO)) {
+				logger.info(ex.getMessage());
+			}
+		} catch (Exception ex) {
 			if (logger != null && logger.isLoggable(Level.INFO)) {
 				logger.info(ex.getMessage());
 			}
