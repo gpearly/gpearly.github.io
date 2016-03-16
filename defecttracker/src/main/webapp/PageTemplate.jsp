@@ -1,5 +1,9 @@
+<%-- page imports --%>
 <%@page import="defecttracker.*" %>
 <%@page import="java.util.*" %>
+
+<%-- get req attribute pageName --%>
+<% String pageName = (String) request.getAttribute("pageName");%>
 
 <!doctype html>
 <html>
@@ -15,11 +19,11 @@
 </head>
 <body role="document" data-pinterest-extension-installed="cr1.39.1">
 	<%-- include header --%>
-	<%@ include file = "/common/Header.jsp"%>
+	<%@ include file = "/common/header.jsp"%>
 	
 	<div class="container theme-showcase" role="main">
-	<%-- core choices: --%>
-	<%-- insert, update, or view (single, all) --%>
+		<%-- dynamically include desired page --%>
+		<jsp:include page="${pageName}" flush="true" />
 	</div>
 
 </body>

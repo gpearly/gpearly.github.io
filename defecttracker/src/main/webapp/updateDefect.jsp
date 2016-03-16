@@ -9,29 +9,6 @@
 <%@page import="defecttracker.*" %>
 <%@page import="java.util.*" %>
 
-<!doctype html>
-<html>
-<head>
-	<title>Update Bug</title>
-    <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-</head>
-<body>
-<%-- include header --%>
-<%@ include file = "/common/Header.jsp"%>
-
-<h2>    
-    <img src="/images/bugTrackerLeft.png" alt="Bug Tracker" style="width:80;height:80px;">
-    Update <span class="bugLarge">Bug</span>
-    <img src="/images/bugTrackerRight.png" alt="Bug Tracker" style="width:80;height:80px;">
-</h2>
-
 <form action="DefectTrackerServlet" method="POST">
 
 <input type="hidden" name="menuOption" value="updateDefect3"/>
@@ -157,22 +134,10 @@ employees = (ArrayList<Employee>)request.getAttribute("employees");
         <td>Solution:</td>
         <td>
             <textarea name="solution" cols="40" rows="5" placeholder="Describe how you knocked this problem out of the park!">
-            	<% if ((uDefect.getSolution() != null) && (uDefect.getSolution().trim().length() > 0)) { %> <%= uDefect.getSolution() %> <% } %>
+            <% if ((uDefect.getSolution() != null) && (uDefect.getSolution().trim().length() > 0)) { %> <%= uDefect.getSolution() %> <% } %>
             </textarea>
         </td>
     </tr>
 </table>
-<table>
-    <tr>
-        <td><button type="reset" value="Reset">Reset</button></td>
-        <td><button type="submit" value="Submit">Submit</button></td>
-        <td>
-        	<a href="/index.html">
-        		<input type="button" value="Cancel" />
-			</a>
-		</td>       
-    </tr>
-</table>
+<%@ include file = "/common/resetSubmitCancelButtons.html" %>
 </form>
-</body>
-</html>

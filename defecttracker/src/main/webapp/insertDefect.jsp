@@ -1,26 +1,9 @@
-<%@page import="defecttracker.Product" %>
-<%@page import="defecttracker.Employee" %>
-<%@page import="defecttracker.Priority" %>
-<%@page import="defecttracker.State" %>
+<%-- page imports --%>
+<%@page import="defecttracker.*" %>
 <%@page import="java.util.ArrayList" %>
 <%@page import="java.util.List" %>
 
-<!doctype html>
-<html>
-<head>
-	<title>Insert Bug</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
-<h2>    
-    <img src="/images/bugTrackerLeft.png" alt="Bug Tracker" style="width:80;height:80px;">
-    Insert New <span class="bugLarge">Bug</span>
-    <img src="/images/bugTrackerRight.png" alt="Bug Tracker" style="width:80;height:80px;">
-</h2>
-
+<h2>Create New Bug</h2>
 <form action="DefectTrackerServlet" method="POST">
 
 <input type="hidden" name="menuOption" value="insertDefect2"/>
@@ -64,7 +47,7 @@ employees = (ArrayList<Employee>)request.getAttribute("employees");
     <tr>
         <td>Description:</td>
         <td>
-            <textarea name="description" cols="40" rows="5" required></textarea>
+            <textarea name="description" cols="40" rows="5" required placeholder="Spill the beans here."></textarea>
         </td>
     </tr>
     <tr>
@@ -106,15 +89,9 @@ employees = (ArrayList<Employee>)request.getAttribute("employees");
     <tr>
         <td>Solution:</td>
         <td>
-            <textarea name="solution" cols="40" rows="5"></textarea>
+            <textarea name="solution" cols="40" rows="5" placeholder="Color me impressed if you already fixed your bug."></textarea>
         </td>
     </tr>
 </table>
-<table>
-    <tr>
-        <td><input type="submit" value="Submit" /></td>
-    </tr>
-</table>
+<%@ include file = "/common/resetSubmitCancelButtons.html" %>
 </form>
-</body>
-</html>
