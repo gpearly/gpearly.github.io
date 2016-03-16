@@ -1,26 +1,13 @@
-<%@page import="defecttracker.Defect" %>
+<%--<%@page import="defecttracker.Defect" %>
 <%@page import="defecttracker.Product" %>
 <%@page import="defecttracker.Employee" %>
 <%@page import="defecttracker.Priority" %>
 <%@page import="defecttracker.State" %>
 <%@page import="java.util.ArrayList" %>
 <%@page import="java.util.List" %>
-
-<!doctype html>
-<html>
-<head>
-	<title>Update Bug</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
-<h2>    
-    <img src="/images/bugTrackerLeft.png" alt="Bug Tracker" style="width:80;height:80px;">
-    Update <span class="bugLarge">Bug</span>
-    <img src="/images/bugTrackerRight.png" alt="Bug Tracker" style="width:80;height:80px;">
-</h2>
+ --%>
+<%@page import="defecttracker.*" %>
+<%@page import="java.util.*" %>
 
 <form action="DefectTrackerServlet" method="POST">
 
@@ -147,22 +134,10 @@ employees = (ArrayList<Employee>)request.getAttribute("employees");
         <td>Solution:</td>
         <td>
             <textarea name="solution" cols="40" rows="5" placeholder="Describe how you knocked this problem out of the park!">
-            	<% if ((uDefect.getSolution() != null) && (uDefect.getSolution().trim().length() > 0)) { %> <%= uDefect.getSolution() %> <% } %>
+            <% if ((uDefect.getSolution() != null) && (uDefect.getSolution().trim().length() > 0)) { %> <%= uDefect.getSolution() %> <% } %>
             </textarea>
         </td>
     </tr>
 </table>
-<table>
-    <tr>
-        <td><button type="reset" value="Reset">Reset</button></td>
-        <td><button type="submit" value="Submit">Submit</button></td>
-        <td>
-        	<a href="/index.html">
-        		<input type="button" value="Cancel" />
-			</a>
-		</td>       
-    </tr>
-</table>
+<%@ include file = "/common/resetSubmitCancelButtons.html" %>
 </form>
-</body>
-</html>

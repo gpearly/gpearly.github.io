@@ -74,7 +74,8 @@ public class DefectTrackerServlet extends HttpServlet {
 			request.setAttribute("employees", employees);
 			
 			// forward to insertDefects.jsp to gather new defect info
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/insertDefect.jsp");
+			request.setAttribute("pageName", "insertDefect.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);
 			
 		} else if (menuOption.equals("insertDefect2")) {
@@ -103,7 +104,8 @@ public class DefectTrackerServlet extends HttpServlet {
 			request.setAttribute("defectId", defectId);
 			
 			// forward to JSP for user confirmation
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/confirmation.jsp");
+			request.setAttribute("pageName", "confirmation.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);
 
 /*		
@@ -122,9 +124,12 @@ public class DefectTrackerServlet extends HttpServlet {
 		----------------------------------------------------------------------------------------------------------		
 */
 		} else if (menuOption.equals("updateDefect1")) {
+			request.setAttribute("idType", "update");
 
-			// forward to getViewId.jsp to request defectId from user
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/getUpdateId.jsp");
+			// forward to getUpdateId.jsp to request defectId from user
+			//request.setAttribute("pageName", "getDefectId.jsp");
+			request.setAttribute("pageName", "getUpdateId.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);
 						
 		} else if (menuOption.equals("updateDefect2")) {
@@ -153,7 +158,8 @@ public class DefectTrackerServlet extends HttpServlet {
 			request.setAttribute("employees", employees);
 			
 			// forward to updateDefects.jsp to update defect info
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/updateDefect.jsp");
+			request.setAttribute("pageName", "updateDefect.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);
 			
 		} else if (menuOption.equals("updateDefect3")) {
@@ -188,7 +194,8 @@ public class DefectTrackerServlet extends HttpServlet {
 			request.setAttribute("defectId", defectId);
 						
 			// forward to JSP for user confirmation
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/confirmation.jsp");
+			request.setAttribute("pageName", "confirmation.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);
 
 /*		
@@ -205,9 +212,12 @@ public class DefectTrackerServlet extends HttpServlet {
 		----------------------------------------------------------------------------------------------------------		
 */
 		} else if (menuOption.equals("viewDefect1")) {
+			request.setAttribute("idType", "view");
 			
 			// forward to getViewId.jsp to request defectId from user
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/getViewId.jsp");
+			//request.setAttribute("pageName", "getDefectId.jsp");
+			request.setAttribute("pageName", "getViewId.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);
 
 		} else if (menuOption.equals("viewDefect2")) {
@@ -219,9 +229,11 @@ public class DefectTrackerServlet extends HttpServlet {
 			defects.add(defect);
 			
 			request.setAttribute("defectList", defects);
+			request.setAttribute("isSingleDefect", "true");
 
 			// forward to viewDefects.jsp
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/viewDefects.jsp");
+			request.setAttribute("pageName", "viewDefects.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);
 
 /*		
@@ -241,9 +253,11 @@ public class DefectTrackerServlet extends HttpServlet {
 			defects = DbUtils.findAllDefects();
 			
 			request.setAttribute("defectList", defects);
+			request.setAttribute("isSingleDefect", "false");
 
 			// forward to viewDefects.jsp
-			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/viewDefects.jsp");
+			request.setAttribute("pageName", "viewDefects.jsp");
+			dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pageTemplate.jsp");
 			dispatcher.forward(request, response);			
 		}
 	}
