@@ -23,6 +23,7 @@
 	
 	<div class="container theme-showcase" role="main">
 		<%-- dynamically include desired page --%>
+		<p>Page Name is: "${pageName}"</p>
 		<jsp:include page="${pageName}" flush="true" />
 	</div>
 

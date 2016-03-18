@@ -42,7 +42,7 @@ public class DefectTrackerServlet extends HttpServlet {
 		7.  viewDefect2     - defectId is retrieved from getDefectId.jsp; get defect info from DB and send to viewDefects.jsp
 		8.  viewAllDefects1 - user chose to view all defects;  get info for all defects and send to viewDefects.jsp
 */				
-		menuOption = request.getParameter("menuOption");						
+		menuOption = request.getParameter("menuOption");	
 		
 /*		
 	    ----------------------------------------------------------------------------------------------------------

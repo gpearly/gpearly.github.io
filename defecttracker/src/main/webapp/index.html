@@ -6,7 +6,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Bug Tracker Main</title>
-
+	<link rel="stylesheet" href="style.css" type="text/css"><!-- This is our style sheet -->
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<!-- Optional theme -->
@@ -76,7 +76,7 @@
 
 	<!-- web page form -->
     <div class="container theme-showcase" role="main">
-		<form class="index" action="DefectTrackerServlet" method="POST">
+		<form class="index" action="DefectTrackerServlet.java" method="POST">
 			<input type="radio" name="menuOption" value="insertDefect1" checked>Create <span class="bugSmall">Bug</span><br>
 			<input type="radio" name="menuOption" value="updateDefect1">Update <span class="bugSmall">Bug</span><br>
 			<input type="radio" name="menuOption" value="viewDefect1">View <span class="bugSmall">Bug</span><br> 

@@ -22,13 +22,15 @@ span.bugLarge {
 }
 
 span.bugSmall {
-    color: red;
+    color: black;
 }
 
 form.index {
+    margin-top: 5%;
     padding-left: 42.5%;
     font-family: 'Droid Serif', serif;
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 input[type=radio] {
@@ -48,7 +50,7 @@ input[type="submit"],
 input[type="button"],
 button {
     background-color:dimgray;
-    color: red;
+    color: dark black;
     font-size:18px;
 	line-height:30px;
 	border-radius:20px;
