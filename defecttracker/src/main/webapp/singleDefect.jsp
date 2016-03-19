@@ -42,9 +42,9 @@
 <p><%= defect.getDescription() %></p>
 
 <h4>Solution</h4>
-<p><% if (defect.getSolution() != null) {
-          defect.getSolution();
-      } else { %>
-         <i>Solution TBD</i>
+<p><% if (defect.getSolution() == null) { %>
+		<i>Solution TBD</i>       
+   <% } else { %>
+      	<%= defect.getSolution() %>
    <% } %>
 </p>
