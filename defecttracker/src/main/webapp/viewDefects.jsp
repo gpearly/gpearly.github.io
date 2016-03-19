@@ -10,9 +10,6 @@ List<Defect> defectList = new ArrayList<Defect>();
 defectList = (ArrayList<Defect>) request.getAttribute("defectList");
 %>
 
-
-<h4>Overview of All Bugs</h4>
-
 <form action="index.html">
 
 <% if (isSingleDefect.equals("true")) { %>
